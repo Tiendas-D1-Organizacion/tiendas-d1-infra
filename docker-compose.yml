@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  db-usuarios:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: usuarios_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+
+  db-inventario:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: inventario_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5433:5432"
+
+  db-compras:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: compras_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5434:5432"
